@@ -1,4 +1,6 @@
-// este é o código em SQL
+// Este é o código em SQL do PowerArchitet //
+// Primeiro Passo: criação das tabelas//
+// Segundo passo: modelagem das chaves e restrições//
 
 
 CREATE TABLE Funcionario (
