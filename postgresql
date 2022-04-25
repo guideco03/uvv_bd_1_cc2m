@@ -1,5 +1,3 @@
-/* Criação de todas as tabelas do projeto /*
-
 CREATE TABLE Funcionario (
                 CPF CHAR(11) NOT NULL,
                 Primeiro_Nome VARCHAR(15) NOT NULL,
@@ -14,7 +12,6 @@ CREATE TABLE Funcionario (
                 CONSTRAINT Funcionario_pk PRIMARY KEY (CPF)
 );
 
-/* Aqui foi necessário aumentar o Varchar Endereco para 40 /*
 
 CREATE TABLE Departamento (
                 Numero_departamento INTEGER NOT NULL,
@@ -44,10 +41,6 @@ CREATE TABLE Projeto (
                 CONSTRAINT Projeto_pk PRIMARY KEY (Numero_Projeto)
 );
 
-
-CREATE INDEX Projeto_idx
- ON Projeto
- ( Nome_Projeto );
 
 CREATE UNIQUE INDEX Projeto_idx1
  ON Projeto
@@ -265,7 +258,9 @@ INSERT INTO Trabalha_Em (CPF_Funcionario, Numero_Projeto)
 VALUES (88866555576, 20);
 
 
-
+/* Primeiro foi criado todas as tabelas, com algumas alterações: o Varchar Endereco da Tabela Funcionarios precisou ser aumentado para 40 e 
+o CPF_Supervisor dessa mesma tabela foi modificado para poder ser nulo); logo em seguida foram feitos os comandos para chaves e restrições, e por fim
+os comandos de inserção de dados seguindo a ordem descrita pelo professor no PDF, utilizando os comandos INSERT INTO e VALUES. /*
 
 
 
