@@ -47,10 +47,6 @@ CREATE TABLE Projeto (
 );
 
 
-CREATE INDEX Projeto_idx
- ON Projeto
- ( Nome_Projeto );
-
 CREATE UNIQUE INDEX Projeto_idx1
  ON Projeto
  ( Nome_Projeto );
