@@ -1,3 +1,6 @@
+/* O primeiro passo foi criar o meu usuário, ceder a autorização a ele criar a DataBase UVV, o esquema e as tabelas do projeto elmarsi. */ 
+/* Feito isso, hora de adicionar todas as tabelas do projeto: */
+
 CREATE TABLE Funcionario (
                 CPF CHAR(11) NOT NULL,
                 Primeiro_Nome VARCHAR(15) NOT NULL,
@@ -12,6 +15,7 @@ CREATE TABLE Funcionario (
                 CONSTRAINT Funcionario_pk PRIMARY KEY (CPF)
 );
 
+/* Aqui na tabela Funcionario foi necessário fazer uma mudança no VARCHAR, aumentando ele para 40, e também foi modificado o CPF_Supervisor para que ele possa ser Nulo. */
 
 CREATE TABLE Departamento (
                 Numero_departamento INTEGER NOT NULL,
@@ -63,6 +67,7 @@ CREATE TABLE Dependente (
                 CONSTRAINT Dependente_pk PRIMARY KEY (CPF_Funcionario, Nome_Dependente)
 );
 
+/* Depois de todas as tabelas criadas, foram feitos os relaionamentos entre as tabelas igual descrito no projeto elmarsi */ 
 
 ALTER TABLE Dependente ADD CONSTRAINT Funcionario_Dependente_fk
 FOREIGN KEY (CPF_Funcionario)
@@ -113,41 +118,45 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
+/* Prontinho. Hora de inserir todos os dados da tabela descritos no PDF. Para isso, utilizei o comando INSERT INTO e VALUES */
+/* Primeiro foram inseridos os dados da Tabela Funcionario, em ordem como no PDF */
+
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
 VALUES ('João', 'B', 'Silva', 12345678966, '09-01-1965', 'Rua das Flores, 751, São Paulo, SP', 'M', 30000, 33344555587, 5);
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
 VALUES ('Fernando', 'T', 'Wong', 33344555587, '08-12-1955', 'Rua da Lapa, 34, São Paulo, SP', 'M', 40000, 88866555576, 5);
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
 VALUES ('Alice', 'J', 'Zelaya', 99988777767, '19-01-1968', 'Rua Souza Lima, 35, Curitiba, PR', 'F', 25000, 98765432168, 4);
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
 VALUES ('Jennifer', 'S', 'Souza', 98765432168, '20-06-1941', 'Av. Arthur de Lima, 54, Santo André, SP', 'F', 43000, 88866555576, 4);
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
 VALUES ('Ronaldo', 'K', 'Lima', 66688444476, '15-09-1962', 'Rua Rebouças, 65, Piracicaba, SP', 'M', 38000, 33344555587, 5);
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
 VALUES ('Joice', 'A', 'Leite', 45345345376, '31-07-1972', 'Av. Lucas Obes, 74, São Paulo, SP', 'F', 25000, 33344555587, 5);
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, CPF_Supervisor, Numero_Departamento)
 VALUES ('André', 'V', 'Pereira', 98798798733, '29-03-1969', 'Rua Timbira, 35, São Paulo, SP', 'M', 25000, 98765432168, 4);
 
-INSERT INTO Funcionarios (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, Numero_Departamento)
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, Numero_Departamento)
 VALUES ('Jorge', 'E', 'Brito', 88866555576, '10-11-1937', 'Rua do Horto, 35, São Paulo, SP', 'M', 38000, 5);
 
+/* Em seguida, foram inseridos os dados da tabela departamento */
 
-
-INSERT INTO departamento (Nome_Departamento, Numero_Departamento, CPF_Gerente, Data_Inicio_Gerente)
+INSERT INTO Departamento (Nome_Departamento, Numero_Departamento, CPF_Gerente, Data_Inicio_Gerente)
 VALUES ('Pesquisa', 5, 33344555587, '22-05-1988');
 
-INSERT INTO departamento (Nome_Departamento, Numero_Departamento, CPF_Gerente, Data_Inicio_Gerente)
+INSERT INTO Departamento (Nome_Departamento, Numero_Departamento, CPF_Gerente, Data_Inicio_Gerente)
 VALUES ('Administração', 4, 98765432168, '01-01-1995');
 
-INSERT INTO departamento (Nome_Departamento, Numero_Departamento, CPF_Gerente, Data_Inicio_Gerente)
+INSERT INTO Departamento (Nome_Departamento, Numero_Departamento, CPF_Gerente, Data_Inicio_Gerente)
 VALUES ('Matriz', 1, 88866555576, '19-06-1981');
 
+/* Agora, vamos inserir os dados da tabela Localizacoes_Departamento */
 
 INSERT INTO Localizacoes_Departamento (Numero_Departamento, Local)
 VALUES (1, 'São Paulo');
@@ -164,7 +173,7 @@ VALUES (5, 'Itu');
 INSERT INTO Localizacoes_Departamento (Numero_Departamento, Local)
 VALUES (5, 'São Paulo');
 
-
+/* Continuando inserindo mais dados... agora da tabela Projeto */
 
 INSERT INTO Projeto (Nome_Projeto, Numero_Projeto, Local_Projeto, Numero_Departamento)
 VALUES ('ProdutoX', 1, 'Santo André', 5);
@@ -184,7 +193,7 @@ VALUES ('Reorgnização', 20, 'São Paulo', 1);
 INSERT INTO Projeto (Nome_Projeto, Numero_Projeto, Local_Projeto, Numero_Departamento)
 VALUES ('NovosBenefícios', 30, 'Mauá', 4);
 
-
+/* Dados da tabela Dependente */
 
 INSERT INTO Dependente (CPF_Funcionario, Nome_Dependente, Sexo, Data_Nascimento, Parentesco)
 VALUES (33344555587, 'Alicia', 'F', '05-04-1986', 'Filha');
@@ -207,7 +216,7 @@ VALUES (12345678966, 'Alicia', 'F', '30-12-1988', 'Filha');
 INSERT INTO Dependente (CPF_Funcionario, Nome_Dependente, Sexo, Data_Nascimento, Parentesco)
 VALUES (12345678966, 'Elizabeth', 'F', '05-05-1967', 'Esposa');
 
-
+/* E por fim, os dados da tabela Trabalha_Em. */
 
 INSERT INTO Trabalha_Em (CPF_Funcionario, Numero_Projeto, Horas)
 VALUES (12345678966, 1, 32.5);
@@ -256,16 +265,4 @@ VALUES (98765432168, 20, 15.0);
 
 INSERT INTO Trabalha_Em (CPF_Funcionario, Numero_Projeto)
 VALUES (88866555576, 20);
-
-
-/* Primeiro foi criado todas as tabelas, com algumas alterações: o Varchar Endereco da Tabela Funcionarios precisou ser aumentado para 40 e 
-o CPF_Supervisor dessa mesma tabela foi modificado para poder ser nulo); logo em seguida foram feitos os comandos para chaves e restrições, e por fim
-os comandos de inserção de dados seguindo a ordem descrita pelo professor no PDF, utilizando os comandos INSERT INTO e VALUES. /*
-
-
-
-
-
-
-
 
