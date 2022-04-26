@@ -1,6 +1,6 @@
-/* Este é o código em SQL do PowerArchitet /*
-/* Primeiro Passo: criação das tabelas/*
-/* Segundo passo: modelagem das chaves e restrições/*
+/* Este é o código em SQL do PowerArchitet. /*
+/* Primeiro Passo: criação das tabelas seguindo o projeto Elmarsi./*
+/* Segundo passo: modelagem das chaves e restrições. /*
 
 
 CREATE TABLE Funcionario (
