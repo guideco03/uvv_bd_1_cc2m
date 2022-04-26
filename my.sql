@@ -1,3 +1,8 @@
+CREATE USER 'guilherme_gobbi'@'localhost' IDENTIFIED BY '1234';
+
+GRANT ALL PRIVILEGES ON * . * TO 'guilherme_gobbi'@'localhost';
+FLUSH PRIVILEGES;
+
 CREATE DATABASE UVV;
 USE UVV;
 
@@ -44,10 +49,6 @@ CREATE TABLE Projeto (
                 CONSTRAINT Projeto_pk PRIMARY KEY (Numero_Projeto)
 );
 
-
-CREATE INDEX Projeto_idx
- ON Projeto
- ( Nome_Projeto );
 
 CREATE UNIQUE INDEX Projeto_idx1
  ON Projeto
