@@ -139,10 +139,14 @@ VALUES ('João', 'B', 'Silva', 12345678966, '09-01-1965', 'Rua das Flores, 751, 
 ('Jennifer', 'S', 'Souza', 98765432168, '20-06-1941', 'Av. Arthur de Lima, 54, Santo André, SP', 'F', 43000, 88866555576, 4),
 ('Ronaldo', 'K', 'Lima', 66688444476, '15-09-1962', 'Rua Rebouças, 65, Piracicaba, SP', 'M', 38000, 33344555587, 5),
 ('Joice', 'A', 'Leite', 45345345376, '31-07-1972', 'Av. Lucas Obes, 74, São Paulo, SP', 'F', 25000, 33344555587, 5),
-('André', 'V', 'Pereira', 98798798733, '29-03-1969', 'Rua Timbira, 35, São Paulo, SP', 'M', 25000, 98765432168, 4),
-('Jorge', 'E', 'Brito', 88866555576, '10-11-1937', 'Rua do Horto, 35, São Paulo, SP', 'M', 38000, 5);
+('André', 'V', 'Pereira', 98798798733, '29-03-1969', 'Rua Timbira, 35, São Paulo, SP', 'M', 25000, 98765432168, 4);
 
-/* Bem mais enxuto né. Feito isso, foram inseridos os dados da tabela departamento */
+/* Optei por separar este último pois o campo CPF_Supervisor do "Jorge" é nulo, e, como este campo não é o último, quando eu digitasse o número_departamento, ele iria para
+o campo do CPF_Supervisor, ocasionando um erro. */
+INSERT INTO Funcionario (Primeiro_Nome, Nome_Meio, Ultimo_Nome, CPF, Data_Nascimento, Enedeco, Sexo, Salario, Numero_Departamento)
+VALUES ('Jorge', 'E', 'Brito', 88866555576, '10-11-1937', 'Rua do Horto, 35, São Paulo, SP', 'M', 38000, 5);
+
+/* Bem mais enxuto, né?. Feito isso, hora de inserir os dados da tabela departamento */
 
 INSERT INTO Departamento (Nome_Departamento, Numero_Departamento, CPF_Gerente, Data_Inicio_Gerente)
 VALUES ('Pesquisa', 5, 33344555587, '22-05-1988'), ('Administração', 4, 98765432168, '01-01-1995'), ('Matriz', 1, 88866555576, '19-06-1981');
@@ -167,7 +171,7 @@ VALUES (33344555587, 'Alicia', 'F', '05-04-1986', 'Filha'), (33344555587, 'Tiago
 
 /* E por fim, os dados da tabela Trabalha_Em. */
 
-INSERT INTO trabalha_em (cpf_funcionario, numero_projeto, horas) 
+INSERT INTO Trabalha_Em (CPF_Funcionario, Numero_Projeto, Horas)
 VALUES (12345678966, 1, 32.5), (12345678966, 2, 7.5), (66688444476, 3, 40.0), (45345345376, 1, 20.0), (45345345376, 2, 20.0),
 (33344555587, 2, 10.0), (33344555587, 3, 10.0), (33344555587, 10, 10.0), (33344555587, 20, 10.0), (99988777767, 30, 30.0),
 (99988777767, 10, 10.0), (98798798733, 10, 35.0), (98798798733, 30, 5.0), (98765432168, 30, 20.0), (98765432168, 20, 15.0),
