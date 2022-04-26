@@ -79,7 +79,7 @@ CREATE TABLE Dependente (
                 CONSTRAINT Dependente_pk PRIMARY KEY (CPF_Funcionario, Nome_Dependente)
 );
 
-
+/* Nos códigos a seguir foram feitos os relacionamentos entre as tabelas com o comando ALTER TABLE. */
 ALTER TABLE Dependente ADD CONSTRAINT Funcionario_Dependente_fk
 FOREIGN KEY (CPF_Funcionario)
 REFERENCES Funcionario (CPF)
@@ -128,3 +128,8 @@ REFERENCES Projeto (Numero_Projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
+
+/* Com todas as tabelas prontas, ssuas devidas restrições e relaconamentos, agora é hora de inserir os dados na tabela de acordo com o PDF*/
+/* Dferente do PostgreSQL, aqui optei por enxutar os códigos ao invés de colocar um monte de INSERT_INTO.*/
+
+
