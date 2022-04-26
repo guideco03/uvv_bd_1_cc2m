@@ -3,4 +3,5 @@
 **Professor:** Abrantes <p>
 
 Este é o arquivo readme do pset1, trabalho da disciplina de Banco de Dados do professor Abrantes, curso de Ciência da Computação na UVV. <p>
-Os scripts são referentes ao projeto elmarsi; eles foram desenvolvidos no SQL Power Architet, PgAdmin 4 e MariaDB. <p>
+Os scripts desenvolvidos são referentes ao projeto Elmarsi; eles foram desenvolvidos no SQL Power Architet, PgAdmin 4 e MySQL. <p>
+Aqui está o link do projeto Elmarsi (foto do meu projeto no SQL PowerArchitect): 
