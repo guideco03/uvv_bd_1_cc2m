@@ -1,11 +1,18 @@
+/* O primeiro passo foi criar meu usuário no Banco de Dados, com o comando CREATE USER, e a senha '1234' com o comando IDENTIFIED BY. */
 CREATE USER 'guilherme_gobbi'@'localhost' IDENTIFIED BY '1234';
 
+/* A seguir, foram dados todos os privilégios do banco de dados para o meu usuário. */
 GRANT ALL PRIVILEGES ON * . * TO 'guilherme_gobbi'@'localhost';
+
+/* Para que as mudanças tenham efeito, executei o seguinte comando: */
 FLUSH PRIVILEGES;
 
+/* Pronto. Hora de criar a Database UVV. Utilizei o comando CREATE DATABASE e, em seguida, o comando USE (nome da Database) para ter certeza que
+estou utilizando aquela Database. */
 CREATE DATABASE UVV;
 USE UVV;
 
+/* Hora da criação das Tabelas. Para isso, utilizei o comando padrão CREATE TABLE e fui inserindo os dados do projeto Elmarsi. */
 CREATE TABLE Funcionario (
                 CPF CHAR(11) NOT NULL,
                 Primeiro_Nome VARCHAR(15) NOT NULL,
@@ -29,7 +36,8 @@ CREATE TABLE Departamento (
                 CONSTRAINT Departamento_pk PRIMARY KEY (Numero_departamento)
 );
 
-
+/* Aqui foi utilizado o comando CREATE UNIQUE INDEX para garantir que a chave de índice não contenha nenhum valor duplicado e, 
+portanto, cada linha na tabela é exclusiva */
 CREATE UNIQUE INDEX Departamento_idx
  ON Departamento
  ( Nome_departamento );
