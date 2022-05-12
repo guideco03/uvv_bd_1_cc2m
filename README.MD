@@ -1,4 +1,4 @@
-#### PSet-1
+#### PSet
 **Aluno:** Guilherme Gobbi Decottignies <p>
 **Professor:** Abrantes <p>
 
