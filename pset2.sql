@@ -77,14 +77,14 @@ p.Nome_Projeto AS "Projeto",
 t.Horas_Trabalhadas AS "Horas Trabalhadas"
 FROM elmasri.Departamento AS d 
 INNER JOIN elmasri.Projeto AS p ON p.Numero_Departamento = d.Numero_Departamento
-INNER JOIN elmasri.Trabalha_Em AS tbm ON tbm.Numero_Projeto = p.Numero_Projeto
+INNER JOIN elmasri.Trabalha_Em AS t ON t.Numero_Projeto = p.Numero_Projeto
 INNER JOIN elmasri.Funcionario AS f ON f.Cpf = tbm.Cpf_Funcionario;
 
 
 /*Questão 9*/
 SELECT d.Nome_Departamento AS "Nome Departamento", 
 p.Nome_Projeto AS "Nome Projeto",
-SUM (t.horas) AS "Horas Trabalhadas"
+SUM (t.Horas) AS "Horas Trabalhadas"
 FROM elmarsi.Departamento AS d
 JOIN elmasri.Projeto AS p
 ON d.Numero_Departamento = p.Numero_Departamento
@@ -104,7 +104,7 @@ GROUP BY Numero_Departamento;
 /*Questão 11*/
 SELECT CONCAT (f.Primeiro_Nome, ' ', f.Nome_Meio, '.', f.Ultimo_Nome, ' ') AS "Nome Completo Funcionário",
 p.Nome_Projeto AS "Nome Projeto",
-CONCAT('R$ ', (tbm.Horas * 50)) AS "Salário por Hora"
+CONCAT('R$ ', (t.Horas * 50)) AS "Salário por Hora"
 FROM elmasri.Funcionario AS f
 JOIN elmasri.Trabalha_Em AS t
 ON t.Cpf_Funcionario = f.Cpf
@@ -117,12 +117,12 @@ p.Nome_Projeto AS "Nome Projeto",
 SELECT CONCAT (f.Primeiro_Nome, ' ', f.Nome_Meio, '.', f.Ultimo_Nome, ' ') AS "Nome Completo Funcionário",
 FROM elmasri.Funcionario AS f
 JOIN elmasri.Trabalha_Em AS t
-ON t.Cpf_Funcionario = f.cpf
+ON t.Cpf_Funcionario = f.Cpf
 JOIN elmasri.Projeto AS p
 ON p.Numero_Projeto = t.Numero_Projeto
 JOIN elmasri.Departamento AS d
 ON p.Numero_Departamento = d.Numero_Departamento
-WHERE tbm.horas IS NULL;
+WHERE t.Horas IS NULL;
 
 
 /*Questão 13*/
@@ -143,7 +143,7 @@ COUNT(f.Cpf) AS "Numero Funcionario"
 FROM elmasri.Funcionario AS f
 JOIN elmasri.Departamento AS d
 ON d.Numero_Departamento = f.Numero_Departamento
-GROUP BY d.nome_departamento;
+GROUP BY d.Nome_Departamento;
 
 
 /*Questão 15*/
